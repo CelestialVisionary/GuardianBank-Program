@@ -1,0 +1,8 @@
+# 忽略的文件和目录
+backend/target/
+backend/.idea/
+frontend/node_modules/
+.DS_Store
+*.log
+*.tmp
+*.bak
