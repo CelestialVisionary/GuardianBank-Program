@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* 头部样式 */
+header {
+    background-color: #1a365d;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4299e1;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #4299e1;
+}
+
+.login-btn a {
+    background-color: #4299e1;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-btn a:hover {
+    background-color: #3182ce;
+}
+
+/* 英雄区域样式 */
+.hero {
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    color: white;
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-btn {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #3182ce;
+}
+
+/* 服务区域样式 */
+.services {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #1a365d;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.card p {
+    color: #4a5568;
+}
+
+/* 错误消息样式 */
+.error-message {
+    background-color: #fed7d7;
+    color: #c53030;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+}
+
+.error-message button {
+    background-color: #c53030;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.error-message button:hover {
+    background-color: #9b2c2c;
+}
+
+/* 联系我们样式 */
+.contact {
+    padding: 5rem 5%;
+    background-color: white;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #1a365d;
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 250px;
+    background-color: #f5f7fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a365d;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+    background-color: #f5f7fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a365d;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #1a365d;
+    color: white;
+    text-align: center;
+    padding: 2rem 5%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        margin: 1rem 0;
+    }
+
+    nav ul li {
+        margin: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .service-cards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
