@@ -1,0 +1,2 @@
+# GuardianBank-Program
+GuardianBank是一个现代化的金融服务网站，提供各种银行业务功能和用户服务。本项目采用前后端分离架构，后端使用Spring Boot框架，前端使用HTML、CSS和JavaScript。
