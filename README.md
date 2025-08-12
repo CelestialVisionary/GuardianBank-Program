@@ -353,7 +353,7 @@ GuardianBank Program/
 
 ## 联系方式
 
-- 项目负责人: [张三](mailto:zhangsan@example.com)
+- 项目负责人: [CelestialVisionary](mailto:zilvdebao@outlook.com)
 - 技术支持: [技术团队](mailto:support@example.com)
 - 项目官网: [https://www.guardianbank.example.com](https://www.guardianbank.example.com)
 
