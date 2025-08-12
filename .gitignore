@@ -1,31 +1,46 @@
-<<<<<<< HEAD
-# 忽略的文件和目录
-
-# Java相关文件
-*.class
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# 日志和临时文件
+# 通用忽略规则
 *.log
 *.tmp
-*.bak
-
-# IDE和开发工具文件
-*.ctxt
-.mtj.tmp/
-backend/.idea/
-
-# 项目特定目录
-backend/target/
-frontend/node_modules/
-
-# 系统和崩溃日志
+*.temp
+*.swp
 .DS_Store
-hs_err_pid*
-replay_pid*
+Thumbs.db
+
+# IDE配置文件
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Java项目忽略规则
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# JavaScript/Node.js项目忽略规则
+frontend/node_modules/
+frontend/package-lock.json
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# 项目状态文件夹(如果不需要纳入版本控制)
+project_status/
+
+# 打包文件
+*.jar
+*.war
+*.zip
+*.tar.gz
+*.7z
