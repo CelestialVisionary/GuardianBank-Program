@@ -13,7 +13,7 @@ GuardianBank是一个现代化的金融服务系统，采用前后端分离架�
 下面是GuardianBank金融服务系统的架构图，使用Mermaid语法绘制：
 
 ```mermaid
- graph TD
+graph TD
     subgraph 前端
         A[HTML5]
         B[CSS3]
@@ -37,8 +37,8 @@ GuardianBank是一个现代化的金融服务系统，采用前后端分离架�
     end
     
     subgraph 数据库
-        I[H2 (开发环境)]
-        J[MySQL (生产环境)]
+        I[H2\n(开发环境)]
+        J[MySQL\n(生产环境)]
     end
     
     前端 --> 通信层
@@ -93,7 +93,7 @@ GuardianBank是一个现代化的金融服务系统，采用前后端分离架�
 ### 后端安装
 1. 克隆项目仓库：
    ```bash
-   git clone https://github.com/yourusername/guardianbank.git
+   git clone https://github.com/CelestialVisionary/GuardianBank-Program.git
    cd guardianbank/backend
    ```
 2. 构建项目：
@@ -414,7 +414,7 @@ GuardianBank Program/
    ```
 5. **添加远程仓库**：
    ```bash
-   git remote add origin https://github.com/您的用户名/仓库名.git
+   git remote add origin https://github.com/CelestialVisionary/GuardianBank-Program.git
    ```
 6. **推送代码到main分支**：
    ```bash
@@ -443,7 +443,7 @@ GuardianBank Program/
 
 ### 注意事项
 - 确保您已安装Git并配置了GitHub凭证（可使用`git config --global user.name`和`git config --global user.email`配置）
-- 仓库URL格式应为：`https://github.com/您的用户名/仓库名.git` 或 `git@github.com:您的用户名/仓库名.git`（SSH方式）
+- 仓库URL格式应为：`https://github.com/CelestialVisionary/GuardianBank-Program.git`
 - 推送前建议先拉取远程最新代码，避免冲突
 - 如果遇到权限问题，请检查您对目标仓库是否有写入权限
 
