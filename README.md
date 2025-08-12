@@ -11,7 +11,7 @@ GuardianBank是一个现代化的金融服务系统，采用前后端分离架�
 ## 系统架构
 
 下面是GuardianBank金融服务系统的架构图，使用Mermaid语法绘制：
-
+```mermaid
 graph TD
     subgraph 前端
         A[HTML5]
@@ -43,6 +43,7 @@ graph TD
     前端 --> 通信层
     通信层 --> 后端
     后端 --> 数据库
+```
 
 
 系统架构说明：
