@@ -37,8 +37,8 @@ graph TD
     end
     
     subgraph 数据库
-        I[H2<br/>(开发环境)]
-        J[MySQL<br/>(生产环境)]
+        I(H2)<br/>(开发环境)
+        J(MySQL)<br/>(生产环境)
     end
     
     前端 --> 通信层
@@ -345,17 +345,6 @@ GuardianBank Program/
   }
   ```
 
-## 运行截图
-
-### 首页
-![首页截图](https://via.placeholder.com/800x400?text=GuardianBank+首页)
-
-### 登录页面
-![登录页面](https://via.placeholder.com/800x400?text=登录页面)
-
-### 服务列表
-![服务列表](https://via.placeholder.com/800x400?text=服务列表)
-
 ## 贡献指南
 
 1. Fork 项目仓库
@@ -389,8 +378,6 @@ GuardianBank Program/
 ## 联系方式
 
 - 项目负责人: [CelestialVisionary](mailto:zilvdebao@outlook.com)
-- 技术支持: [技术团队](mailto:support@example.com)
-- 项目官网: [https://www.guardianbank.example.com](https://www.guardianbank.example.com)
 
 ## 鸣谢
 
