@@ -386,7 +386,7 @@ GuardianBank Program/
 ## 部署到GitHub
 
 ### 手动部署步骤
-1. **在GitHub上创建新仓库**：登录GitHub，创建一个新的空仓库，获取仓库URL（https://github.com/CelestialVisionary/GuardianBank-Program.git`）
+1. **在GitHub上创建新仓库**：登录GitHub，创建一个新的空仓库，获取仓库URL（https://github.com/CelestialVisionary/GuardianBank-Program.git）
 2. **初始化本地Git仓库**（如项目未初始化）：
    ```bash
    git init
@@ -430,7 +430,7 @@ GuardianBank Program/
 
 ### 注意事项
 - 确保您已安装Git并配置了GitHub凭证（可使用`git config --global user.name`和`git config --global user.email`配置）
-- 仓库URL格式应为：`https://github.com/CelestialVisionary/GuardianBank-Program.git`
+- 仓库URL格式应为：https://github.com/CelestialVisionary/GuardianBank-Program.git
 - 推送前建议先拉取远程最新代码，避免冲突
 - 如果遇到权限问题，请检查您对目标仓库是否有写入权限
 
