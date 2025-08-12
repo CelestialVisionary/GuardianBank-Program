@@ -10,12 +10,47 @@ GuardianBank是一个现代化的金融服务系统，采用前后端分离架�
 
 ## 系统架构
 
-![系统架构](https://via.placeholder.com/800x400?text=GuardianBank+系统架构图)
+下面是GuardianBank金融服务系统的架构图，使用Mermaid语法绘制：
 
-- **前端**：HTML5 + CSS3 + JavaScript
-- **后端**：Spring Boot + Spring Security + Spring Data JPA
-- **数据库**：H2 (开发环境), MySQL (生产环境)
-- **通信**：RESTful API + JSON
+```mermaid
+ graph TD
+    subgraph 前端
+        A[HTML5]
+        B[CSS3]
+        C[JavaScript]
+        A --> B
+        B --> C
+    end
+    
+    subgraph 通信层
+        D[RESTful API]
+        E[JSON]
+        D --> E
+    end
+    
+    subgraph 后端
+        F[Spring Boot]
+        G[Spring Security]
+        H[Spring Data JPA]
+        F --> G
+        F --> H
+    end
+    
+    subgraph 数据库
+        I[H2 (开发环境)]
+        J[MySQL (生产环境)]
+    end
+    
+    前端 --> 通信层
+    通信层 --> 后端
+    后端 --> 数据库
+```
+
+系统架构说明：
+- **前端**：使用HTML5、CSS3和JavaScript构建响应式用户界面
+- **通信层**：通过RESTful API进行前后端通信，数据格式采用JSON
+- **后端**：基于Spring Boot框架，集成Spring Security提供安全认证，使用Spring Data JPA进行数据访问
+- **数据库**：开发环境使用H2内存数据库，生产环境使用MySQL关系型数据库
 
 ## 技术栈
 
@@ -364,7 +399,7 @@ GuardianBank Program/
 ## 部署到GitHub
 
 ### 手动部署步骤
-1. **在GitHub上创建新仓库**：登录GitHub，创建一个新的空仓库，获取仓库URL（如`https://github.com/您的用户名/仓库名.git`）
+1. **在GitHub上创建新仓库**：登录GitHub，创建一个新的空仓库，获取仓库URL（https://github.com/CelestialVisionary/GuardianBank-Program.git`）
 2. **初始化本地Git仓库**（如项目未初始化）：
    ```bash
    git init
