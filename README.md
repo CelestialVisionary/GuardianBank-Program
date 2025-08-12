@@ -37,8 +37,8 @@ graph TD
     end
     
     subgraph 数据库
-        I[H2\n(开发环境)]
-        J[MySQL\n(生产环境)]
+        I[H2<br/>(开发环境)]
+        J[MySQL<br/>(生产环境)]
     end
     
     前端 --> 通信层
