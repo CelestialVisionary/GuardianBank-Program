@@ -98,13 +98,20 @@ graph TD
    ```
 2. 构建项目：
    ```bash
-   mvn clean install
-   ```
-3. 运行应用：
+mvn clean package -DskipTests
+java -jar target\guardianbank-backend-1.0.0.jar
+```
+
+注意事项：
+1. 如果遇到文件占用问题，先执行清理命令：
    ```bash
-   mvn spring-boot:run
+   rm -r target
    ```
-4. 后端服务将在 http://localhost:8080 启动
+2. PowerShell请使用分号分隔命令：
+   ```powershell
+   mvn clean package -DskipTests; java -jar target\guardianbank-backend-1.0.0.jar
+   ```
+3. 后端服务将在 http://localhost:8080 启动
 
 ### 前端安装
 1. 进入前端目录：
@@ -153,8 +160,8 @@ logging.level.com.guardianbank=DEBUG
 ```
 
 ### 前端配置
-- 配置文件：`frontend/config.js`
-- API 基础URL配置：
+- 配置文件：`frontend/app.js` (在实际项目中配置API基础URL)
+- API 基础URL配置示例：
 ```javascript
 const config = {
   apiBaseUrl: 'http://localhost:8080/api'
@@ -167,61 +174,26 @@ const config = {
 GuardianBank Program/
 ├── .gitignore              # Git忽略文件
 ├── README.md               # 项目说明文档
-├── LICENSE                 # 许可证文件
 ├── backend/                # 后端项目
-│   ├── build-backend.bat   # Windows构建脚本
-│   ├── build-backend.ps1   # PowerShell构建脚本
 │   ├── pom.xml             # Maven配置文件
-│   └── src/                # 源代码
-│       ├── main/
-│       │   ├── java/com/guardianbank/
-│       │   │   ├── MainApplication.java       # 应用入口
-│       │   │   ├── config/                    # 配置类
-│       │   │   │   ├── CorsConfig.java        # 跨域配置
-│       │   │   │   ├── SecurityConfig.java    # 安全配置
-│       │   │   │   └── JwtConfig.java         # JWT配置
-│       │   │   ├── controller/                # 控制器
-│       │   │   │   ├── HomeController.java    # 首页控制器
-│       │   │   │   ├── UserController.java    # 用户控制器
-│       │   │   │   ├── AccountController.java # 账户控制器
-│       │   │   │   └── ContactController.java # 联系控制器
-│       │   │   ├── model/                     # 数据模型
-│       │   │   │   ├── User.java              # 用户实体
-│       │   │   │   ├── Account.java           # 账户实体
-│       │   │   │   ├── Transaction.java       # 交易实体
-│       │   │   │   ├── Service.java           # 服务实体
-│       │   │   │   └── ContactForm.java       # 联系表单实体
-│       │   │   ├── repository/                # 数据访问层
-│       │   │   │   ├── UserRepository.java    # 用户仓库
-│       │   │   │   ├── AccountRepository.java # 账户仓库
-│       │   │   │   ├── TransactionRepository.java # 交易仓库
-│       │   │   │   └── ServiceRepository.java # 服务仓库
-│       │   │   ├── service/                   # 服务层
-│       │   │   │   ├── UserService.java       # 用户服务
-│       │   │   │   ├── AccountService.java    # 账户服务
-│       │   │   │   └── AuthService.java       # 认证服务
-│       │   │   └── util/                      # 工具类
-│       │   │       ├── DataInitializer.java   # 数据初始化
-│       │   │       └── JwtUtil.java            # JWT工具
-│       │   └── resources/                     # 资源文件
-│       │       ├── application.properties     # 应用配置
-│       │       └── static/                    # 静态资源
-│       └── test/                              # 测试代码
-├── frontend/               # 前端项目
-│   ├── index.html          # 首页
-│   ├── package.json        # npm配置
-│   ├── package-lock.json   # 依赖锁文件
-│   ├── server.js           # 前端服务器
-│   ├── start-frontend.bat  # 前端启动脚本
-│   ├── styles.css          # 样式文件
-│   ├── app.js              # 应用入口
-│   ├── config.js           # 配置文件
-│   └── images/             # 图片资源
-├── init-git.bat            # Git初始化脚本
-└── project_status/         # 项目状态
-    ├── completed_tasks.md  # 已完成任务
-    └── pending_tasks.md    # 待完成任务
+│   ├── src/                # 源代码
+│   │   └── main/
+│   └── start-backend.bat   # Windows启动脚本
+└── frontend/               # 前端项目
+    ├── app.js              # 应用入口及配置
+    ├── index.html          # 首页
+    ├── package.json        # npm配置
+    ├── server.js           # 前端服务器
+    ├── start-frontend.bat  # 前端启动脚本
+    └── styles.css          # 样式文件
 ```
+
+关键目录说明：
+- `backend/`：包含Spring Boot后端应用代码和构建配置
+- `frontend/`：包含前端静态资源和配置
+- `start-*.bat`：平台特定的启动脚本
+- `pom.xml`：Maven项目配置，已配置Spring Boot Repackage插件
+
 
 ## 访问控制
 
@@ -373,7 +345,7 @@ GuardianBank Program/
 
 ## 许可证
 
-本项目采用 MIT 许可证 - 详情请见 [LICENSE](LICENSE) 文件
+本项目采用 MIT 许可证 - 详情请见项目根目录的 LICENSE 文件
 
 ## 联系方式
 
@@ -460,9 +432,3 @@ GuardianBank Program/
 4. **代码审查**：
    - 推行Pull Request流程，鼓励团队成员互相审查代码
    - 通过代码审查提高代码质量，发现潜在问题和改进点
-
-## 常见问题
-
-1. **无法推送代码**：请确保您对目标GitHub仓库有写入权限，并且网络连接正常
-2. **Git未找到**：请确保Git已安装并添加到系统PATH环境变量中
-3. **文件被忽略**：检查`.gitignore`文件，确保没有意外忽略必要的文件
