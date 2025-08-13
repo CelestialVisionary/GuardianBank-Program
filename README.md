@@ -8,6 +8,32 @@
 
 GuardianBank是一个现代化的金融服务系统，采用前后端分离架构，提供完整的银行业务功能和用户服务。系统后端基于Spring Boot框架构建，前端采用HTML、CSS和JavaScript实现响应式设计，确保在各种设备上都有良好的用户体验。
 
+## 项目结构
+
+```
+GuardianBank Program/
+├── .gitignore              # Git忽略文件
+├── README.md               # 项目说明文档
+├── backend/                # 后端项目
+│   ├── pom.xml             # Maven配置文件
+│   ├── src/                # 源代码
+│   │   └── main/
+│   └── start-backend.bat   # Windows启动脚本
+└── frontend/               # 前端项目
+    ├── app.js              # 应用入口及配置
+    ├── index.html          # 首页
+    ├── package.json        # npm配置
+    ├── server.js           # 前端服务器
+    ├── start-frontend.bat  # 前端启动脚本
+    └── styles.css          # 样式文件
+```
+
+关键目录说明：
+- `backend/`：包含Spring Boot后端应用代码和构建配置
+- `frontend/`：包含前端静态资源和配置
+- `start-*.bat`：平台特定的启动脚本
+- `pom.xml`：Maven项目配置，已配置Spring Boot Repackage插件
+
 ## 系统架构
 
 下面是GuardianBank金融服务系统的架构图，使用Mermaid语法绘制：
@@ -73,7 +99,81 @@ graph TD
 
 ## 功能特点
 
-1. **用户管理**：注册、登录、个人信息管理
+GuardianBank金融服务系统提供以下核心功能：
+
+1. **账户管理**
+   - 用户注册、登录和身份验证
+   - 账户信息查询和管理
+   - 交易历史记录查询
+
+2. **支付与转账**
+   - 国内转账和国际汇款
+   - 支付账单和水电费
+   - 移动支付集成
+
+3. **投资理财**
+   - 定期存款和理财产品
+   - 股票和基金投资
+   - 投资组合管理
+
+4. **贷款服务**
+   - 个人贷款和房屋抵押贷款
+   - 贷款申请和审批流程
+   - 利率计算和还款计划
+
+5. **客户服务**
+   - 在线客服支持
+   - 常见问题解答
+   - 投诉和反馈处理
+
+## 项目启动指南
+
+### 自动启动方法
+
+#### 使用批处理文件
+```
+cd d:\GuardianBank Program\start-project
+start-project.bat
+```
+
+#### 使用PowerShell脚本
+```
+cd d:\GuardianBank Program\start-project
+powershell -File .\start-project.ps1
+```
+
+### 手动启动步骤
+
+#### 启动后端服务
+```
+cd d:\GuardianBank Program\backend
+mvn clean package -DskipTests
+cd target
+java -jar guardianbank-backend-1.0.0.jar
+```
+
+#### 启动前端服务
+```
+cd d:\GuardianBank Program\frontend
+npm install
+npm start
+```
+
+### 服务访问地址
+- 前端: http://localhost:3000
+- 后端: http://localhost:8080
+
+### 注意事项
+1. 第一次运行时，安装前端依赖可能需要一些时间
+2. 如果遇到端口冲突，请修改后端或前端的配置文件
+3. 服务会在新窗口启动，执行命令的窗口可以关闭
+
+### 故障排除
+- Maven或Node.js未找到: 请确保已安装并添加到环境变量
+- 端口冲突: 尝试修改配置文件中的端口号
+- 构建失败: 检查网络连接，确保依赖可以下载
+
+
 2. **账户服务**：余额查询、交易记录、转账汇款
 3. **服务展示**：展示银行提供的各种金融服务
 4. **联系我们**：用户可以提交联系表单获取支持
@@ -168,31 +268,6 @@ const config = {
 };
 ```
 
-## 项目结构
-
-```
-GuardianBank Program/
-├── .gitignore              # Git忽略文件
-├── README.md               # 项目说明文档
-├── backend/                # 后端项目
-│   ├── pom.xml             # Maven配置文件
-│   ├── src/                # 源代码
-│   │   └── main/
-│   └── start-backend.bat   # Windows启动脚本
-└── frontend/               # 前端项目
-    ├── app.js              # 应用入口及配置
-    ├── index.html          # 首页
-    ├── package.json        # npm配置
-    ├── server.js           # 前端服务器
-    ├── start-frontend.bat  # 前端启动脚本
-    └── styles.css          # 样式文件
-```
-
-关键目录说明：
-- `backend/`：包含Spring Boot后端应用代码和构建配置
-- `frontend/`：包含前端静态资源和配置
-- `start-*.bat`：平台特定的启动脚本
-- `pom.xml`：Maven项目配置，已配置Spring Boot Repackage插件
 
 
 ## 访问控制
