@@ -1,7 +1,8 @@
 # GuardianBank项目启动脚本（PowerShell版）
 
 # 设置项目根目录
-$PROJECT_ROOT = "d:\GuardianBank Program"
+$PROJECT_ROOT = Split-Path -Parent $MyInvocation.MyCommand.Path
+$PROJECT_ROOT = Split-Path -Parent $PROJECT_ROOT
 
 # 检查依赖
 Write-Host "[1/5] 正在检查依赖..."
