@@ -46,7 +46,7 @@ Write-Host "后端构建完成！"
 
 # 启动后端
 Write-Host "[3/5] 正在启动后端服务..."
-Start-Process -FilePath "java" -ArgumentList "-jar", "target\guardianbank-backend-1.0.0.jar" -WindowStyle NewWindow
+Start-Process -FilePath "java" -ArgumentList "-jar", "target\guardianbank-backend-1.0.0.jar" -WindowStyle Normal
 if (-not $?) {
     Write-Host "错误: 后端服务启动失败。"
     pause
@@ -75,7 +75,7 @@ Write-Host "前端依赖安装完成！"
 
 # 启动前端
 Write-Host "[5/5] 正在启动前端服务..."
-Start-Process -FilePath "npm" -ArgumentList "start" -WindowStyle NewWindow
+Start-Process -FilePath "npm" -ArgumentList "start" -WindowStyle Normal
 if (-not $?) {
     Write-Host "错误: 前端服务启动失败。"
     pause
