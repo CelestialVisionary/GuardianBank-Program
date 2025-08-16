@@ -150,4 +150,106 @@ document.addEventListener('DOMContentLoaded', function() {
     // 调用函数获取服务数据
     console.log('页面加载完成，准备调用fetchServices函数');
     fetchServices();
+
+    // 联系表单验证
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 清除之前的错误提示
+            clearErrors();
+            
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            let isValid = true;
+            
+            // 验证姓名
+            if (!name.trim()) {
+                showError('name', '姓名不能为空');
+                isValid = false;
+            }
+            
+            // 验证邮箱
+            if (!email.trim()) {
+                showError('email', '邮箱不能为空');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showError('email', '请输入有效的邮箱地址');
+                isValid = false;
+            }
+            
+            // 验证留言内容
+            if (!message.trim()) {
+                showError('message', '留言内容不能为空');
+                isValid = false;
+            } else if (message.length < 10) {
+                showError('message', '留言内容至少需要10个字符');
+                isValid = false;
+            }
+            
+            // 如果验证通过，提交表单
+            if (isValid) {
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                
+                // 发送数据到服务器
+                fetch('http://localhost:8080/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    alert('提交成功！我们会尽快回复您。');
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    console.error('提交失败:', error);
+                    alert('提交失败，请稍后再试。');
+                });
+            }
+        });
+    }
+
+    // 邮箱验证函数
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // 显示错误信息
+    function showError(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.createElement('div');
+        errorElement.className = 'error-message';
+        errorElement.textContent = message;
+        errorElement.style.color = 'red';
+        errorElement.style.fontSize = '0.8rem';
+        errorElement.style.marginTop = '0.2rem';
+        
+        // 将错误信息添加到表单组
+        const formGroup = field.closest('.form-group');
+        formGroup.appendChild(errorElement);
+        
+        // 高亮显示错误字段
+        field.style.borderColor = 'red';
+    }
+
+    // 清除所有错误信息
+    function clearErrors() {
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(error => error.remove());
+        
+        // 重置字段样式
+        const fields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+        fields.forEach(field => {
+            field.style.borderColor = '';
+        });
+    }
 });
