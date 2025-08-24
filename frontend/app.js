@@ -1,5 +1,9 @@
 // 等待DOM加载完成
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化图片懒加载
+    lazyLoadImages();
+    // 添加滚动事件监听器以继续懒加载
+    window.addEventListener('scroll', lazyLoadImages);
     // 获取元素
     const ctaBtn = document.querySelector('.cta-btn');
     const loginBtn = document.querySelector('.login-btn a');
@@ -94,19 +98,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // 监听窗口大小变化
     window.addEventListener('resize', toggleMenuBtn);
 
-    // 从后端API获取服务数据
-    function fetchServices() {
+    // 从后端API获取服务数据 - 优化版
+    function fetchServices(retryCount = 0) {
+        // 检查缓存
+        const cachedData = localStorage.getItem('servicesData');
+        if (cachedData) {
+            console.log('使用缓存的服务数据');
+            renderServices(JSON.parse(cachedData));
+            return;
+        }
+
         console.log('开始从后端获取服务数据...');
         console.log('请求URL:', 'http://localhost:8080/api/services');
         fetch('http://localhost:8080/api/services')
             .then(response => {
-                console.log('响应对象:', response);
-                console.log('响应状态:', response.status);
-                console.log('响应状态文本:', response.statusText);
-                console.log('响应头部:', response.headers);
+                if (!response.ok) {
+                    throw new Error(`HTTP错误! 状态码: ${response.status}`);
+                }
                 // 确保正确处理中文
                 return response.text().then(text => {
-                    console.log('响应文本:', text);
                     try {
                         return JSON.parse(text);
                     } catch (e) {
@@ -117,39 +127,85 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 console.log('成功获取服务数据:', data);
-                const serviceCards = document.querySelector('.service-cards');
-                // 清空现有内容
-                serviceCards.innerHTML = '';
-                // 动态生成服务卡片
-                data.forEach(service => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <h3>${service}</h3>
-                        <p>探索我们的${service}服务，满足您的金融需求。</p>
-                    `;
-                    serviceCards.appendChild(card);
-                });
+                // 缓存数据
+                localStorage.setItem('servicesData', JSON.stringify(data));
+                // 渲染服务
+                renderServices(data);
             })
             .catch(error => {
                 console.error('获取服务数据失败:', error);
-                console.error('错误名称:', error.name);
-                console.error('错误堆栈:', error.stack);
-                // 显示错误信息给用户
-                const serviceCards = document.querySelector('.service-cards');
-                serviceCards.innerHTML = `
-                    <div class="error-message">
-                        <p>无法获取服务数据: ${error.message}</p>
-                        <p>错误名称: ${error.name}</p>
-                        <button onclick="fetchServices()">重试</button>
-                    </div>
-                `;
+                // 指数退避重试机制
+                const maxRetries = 3;
+                if (retryCount < maxRetries) {
+                    const delay = Math.pow(2, retryCount) * 1000; // 1s, 2s, 4s
+                    console.log(`将在${delay}毫秒后重试...`);
+                    setTimeout(() => fetchServices(retryCount + 1), delay);
+                } else {
+                    // 显示错误信息给用户
+                    const serviceCards = document.querySelector('.service-cards');
+                    serviceCards.innerHTML = `
+                        <div class="error-message">
+                            <p>无法获取服务数据: ${error.message}</p>
+                            <button onclick="fetchServices()">重试</button>
+                        </div>
+                    `;
+                }
             });
+    }
+
+    // 渲染服务数据
+    function renderServices(data) {
+        const serviceCards = document.querySelector('.service-cards');
+        // 清空现有内容
+        serviceCards.innerHTML = '';
+        // 创建文档片段以减少DOM操作
+        const fragment = document.createDocumentFragment();
+        // 动态生成服务卡片
+        data.forEach((service, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            // 为每个卡片添加懒加载图片
+            card.innerHTML = `
+                <img data-src="https://picsum.photos/300/200?random=${index + 1}" alt="${service}" class="lazy-image">
+                <h3>${service}</h3>
+                <p>探索我们的${service}服务，满足您的金融需求。</p>
+            `;
+            fragment.appendChild(card);
+        });
+        // 一次性添加所有卡片到DOM
+        serviceCards.appendChild(fragment);
+        // 触发懒加载检查
+        lazyLoadImages();
     }
 
     // 调用函数获取服务数据
     console.log('页面加载完成，准备调用fetchServices函数');
-    fetchServices();
+    // 使用requestAnimationFrame优化性能
+    window.requestAnimationFrame(fetchServices);
+
+    // 图片懒加载函数
+    function lazyLoadImages() {
+        // 获取所有带有data-src属性的图片
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        
+        // 检查每张图片是否在视口内
+        lazyImages.forEach(image => {
+            const rect = image.getBoundingClientRect();
+            const isVisible = (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+            
+            if (isVisible) {
+                // 如果图片在视口内，加载图片
+                image.src = image.getAttribute('data-src');
+                // 移除data-src属性，避免重复加载
+                image.removeAttribute('data-src');
+            }
+        });
+    }
 
     // 联系表单验证
     const contactForm = document.getElementById('contactForm');

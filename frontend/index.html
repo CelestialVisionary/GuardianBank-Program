@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuardianBank - 安全金融服务</title>
+    <!-- 预加载关键CSS -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,14 +35,17 @@
         <h2>我们的服务</h2>
         <div class="service-cards">
             <div class="card">
+                <img data-src="https://picsum.photos/300/200?random=1" alt="个人 banking" class="lazy-image">
                 <h3>个人 banking</h3>
                 <p>灵活的个人账户管理，满足您的日常金融需求。</p>
             </div>
             <div class="card">
+                <img data-src="https://picsum.photos/300/200?random=2" alt="企业金融" class="lazy-image">
                 <h3>企业金融</h3>
                 <p>专业的企业金融解决方案，助力企业发展。</p>
             </div>
             <div class="card">
+                <img data-src="https://picsum.photos/300/200?random=3" alt="投资理财" class="lazy-image">
                 <h3>投资理财</h3>
                 <p>多样化的投资产品，让您的财富增值。</p>
             </div>
@@ -80,24 +86,8 @@
         <p>&copy; 2023 GuardianBank. 保留所有权利。</p>
     </footer>
 
-    <script src="app.js"></script>
-    <script>
-        // 联系表单提交处理
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // 发送数据到服务器
-            fetch('http://localhost:8080/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
+    <!-- 延迟加载非关键JavaScript -->
+    <script src="app.js" defer></script>
                 console.log('服务器响应:', result);
                 alert(result.message);
                 this.reset();

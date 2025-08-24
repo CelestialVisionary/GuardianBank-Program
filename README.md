@@ -1,12 +1,14 @@
 # GuardianBank 金融服务系统
 
-![项目状态](https://img.shields.io/badge/状态-开发中-brightgreen)
-![GitHub版本](https://img.shields.io/badge/版本-1.0.0-blue)
-![许可证](https://img.shields.io/badge/许可证-MIT-green)
+ ![项目状态](https://img.shields.io/badge/状态-开发中-brightgreen)
+ ![GitHub版本](https://img.shields.io/badge/版本-1.0.0-blue)
+ ![许可证](https://img.shields.io/badge/许可证-MIT-green)
 
 ## 项目简介
 
-GuardianBank是一个现代化的金融服务系统，采用前后端分离架构，提供完整的银行业务功能和用户服务。系统后端基于Spring Boot框架构建，前端采用HTML、CSS和JavaScript实现响应式设计，确保在各种设备上都有良好的用户体验。
+GuardianBank是一个现代化的金融服务系统，采用前后端分离架构，提供完整的银行业务功能和用户服务。系统后端基于Spring Boot框架构建，前端采用HTML、CSS和JavaScript实现响应式设计，并结合了多种性能优化技术，确保在各种设备上都有良好的用户体验和加载速度。
+
+最近完成了前端性能优化工作，包括资源懒加载、图片优化、请求缓存机制等，显著提升了系统的加载速度和运行效率。
 
 ## 项目结构
 
@@ -19,18 +21,27 @@ GuardianBank Program/
 │   ├── src/                # 源代码
 │   │   └── main/
 │   └── start-backend.bat   # Windows启动脚本
-└── frontend/               # 前端项目
-    ├── app.js              # 应用入口及配置
-    ├── index.html          # 首页
-    ├── package.json        # npm配置
-    ├── server.js           # 前端服务器
-    ├── start-frontend.bat  # 前端启动脚本
-    └── styles.css          # 样式文件
+├── frontend/               # 前端项目
+│   ├── app.js              # 应用入口及配置
+│   ├── index.html          # 首页
+│   ├── package.json        # npm配置
+│   ├── server.js           # 前端服务器
+│   ├── start-frontend.bat  # 前端启动脚本
+│   └── styles.css          # 样式文件
+├── project_status/         # 项目状态文档
+│   ├── completed_tasks.md  # 已完成任务列表
+│   └── pending_tasks.md    # 待完成任务列表
+└── start-project/          # 项目启动脚本
+    ├── README.txt          # 启动说明
+    ├── start-project.bat   # Windows启动脚本
+    └── start-project.ps1   # PowerShell启动脚本
 ```
 
 关键目录说明：
 - `backend/`：包含Spring Boot后端应用代码和构建配置
 - `frontend/`：包含前端静态资源和配置
+- `project_status/`：包含项目状态文档，记录已完成和待完成的任务
+- `start-project/`：包含项目启动脚本，提供便捷的方式启动整个项目
 - `start-*.bat`：平台特定的启动脚本
 - `pom.xml`：Maven项目配置，已配置Spring Boot Repackage插件
 
@@ -96,6 +107,13 @@ graph TD
 - 响应式设计
 - Font Awesome 图标
 - Chart.js (数据可视化)
+- 性能优化技术：
+  - 图片懒加载
+  - JavaScript延迟加载
+  - CSS预加载
+  - 请求缓存机制
+  - 指数退避重试机制
+  - DOM操作优化 (文档片段)
 
 ## 功能特点
 
@@ -125,6 +143,14 @@ GuardianBank金融服务系统提供以下核心功能：
    - 在线客服支持
    - 常见问题解答
    - 投诉和反馈处理
+
+6. **系统性能优化**
+   - 图片懒加载：减少初始加载时间
+   - JavaScript延迟加载：提高页面渲染速度
+   - CSS预加载：优化样式加载顺序
+   - 请求缓存机制：减少重复网络请求
+   - 指数退避重试：提高API调用稳定性
+   - DOM操作优化：使用文档片段减少重排重绘
 
 ## 项目启动指南
 
@@ -227,6 +253,16 @@ java -jar target\guardianbank-backend-1.0.0.jar
    npm start
    ```
 4. 前端页面将在 http://localhost:8000 访问
+
+### 性能优化验证
+启动服务后，您可以通过以下方式验证前端性能优化效果：
+1. 打开浏览器开发者工具 (F12)
+2. 切换到 Network 面板
+3. 刷新页面，观察资源加载情况：
+   - 图片将在进入视口时才加载 (懒加载)
+   - JavaScript 文件将延迟加载 (defer 属性)
+   - CSS 文件将被预加载 (preload)
+4. 切换到 Performance 面板，记录页面加载性能，与优化前对比
 
 ## 配置说明
 
