@@ -1,6 +1,6 @@
 # GuardianBank 金融服务系统
 
-![项目封面](https://via.placeholder.com/800x400?text=GuardianBank+Financial+System)
+![项目封面](images/guardianbank-cover.svg)
 
 ## 🌟 项目亮点
 

@@ -1,0 +1,27 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#0a3d62"/>
+  
+  <!-- 装饰性图形 -->
+  <circle cx="650" cy="150" r="100" fill="rgba(30, 136, 229, 0.2)"/>
+  <circle cx="150" cy="250" r="80" fill="rgba(39, 174, 96, 0.2)"/>
+  
+  <!-- 盾牌图标 -->
+  <g transform="translate(400, 180)">
+    <path d="M0,-100 L-80,60 L0,100 L80,60 Z" fill="#1e88e5"/>
+    <path d="M0,-80 L-60,40 L0,80 L60,40 Z" fill="#2196f3"/>
+    <path d="M0,-60 L-40,20 L0,60 L40,20 Z" fill="#64b5f6"/>
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">GB</text>
+  </g>
+  
+  <!-- 项目标题 -->
+  <text x="400" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="white">GuardianBank</text>
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#bbdefb">金融服务系统</text>
+  
+  <!-- 装饰线条 -->
+  <line x1="200" y1="120" x2="600" y2="120" stroke="#2196f3" stroke-width="2"/>
+  
+  <!-- 标语 -->
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#e3f2fd">您的财富安全，我们的首要任务</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#bbdefb">提供最安全、最便捷的金融服务解决方案</text>
+</svg>
