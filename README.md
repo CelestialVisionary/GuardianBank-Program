@@ -231,9 +231,9 @@ npm start
    ```
 2. 构建项目：
    ```bash
-mvn clean package -DskipTests
-java -jar target\guardianbank-backend-1.0.0.jar
-```
+   mvn clean package -DskipTests
+   java -jar target\guardianbank-backend-1.0.0.jar
+   ```
 
 注意事项：
 1. 如果遇到文件占用问题，先执行清理命令：
