@@ -1,14 +1,23 @@
 # GuardianBank 金融服务系统
 
- ![项目状态](https://img.shields.io/badge/状态-开发中-brightgreen)
- ![GitHub版本](https://img.shields.io/badge/版本-1.0.0-blue)
- ![许可证](https://img.shields.io/badge/许可证-MIT-green)
+![项目封面](https://via.placeholder.com/800x400?text=GuardianBank+Financial+System)
+
+## 🌟 项目亮点
+
+![项目状态](https://img.shields.io/badge/状态-开发中-brightgreen) ![GitHub版本](https://img.shields.io/badge/版本-1.0.0-blue) ![许可证](https://img.shields.io/badge/许可证-MIT-green)
+![后端技术](https://img.shields.io/badge/后端-Spring%20Boot-blue) ![前端技术](https://img.shields.io/badge/前端-HTML%2FCSS%2FJS-orange) ![数据库](https://img.shields.io/badge/数据库-MySQL%2FH2-green)
+![性能优化](https://img.shields.io/badge/性能优化-已实现-red) ![响应式设计](https://img.shields.io/badge/响应式设计-支持-blue)
 
 ## 项目简介
 
-GuardianBank是一个现代化的金融服务系统，采用前后端分离架构，提供完整的银行业务功能和用户服务。系统后端基于Spring Boot框架构建，前端采用HTML、CSS和JavaScript实现响应式设计，并结合了多种性能优化技术，确保在各种设备上都有良好的用户体验和加载速度。
+GuardianBank是一个**现代化金融服务系统**，采用前后端分离架构，提供完整的银行业务功能和用户服务。系统设计注重安全性、性能和用户体验，为用户提供便捷、可靠的金融服务解决方案。
 
-最近完成了前端性能优化工作，包括资源懒加载、图片优化、请求缓存机制等，显著提升了系统的加载速度和运行效率。
+- 🚀 **高效性能**：采用多种前端性能优化技术，包括资源懒加载、图片优化和请求缓存机制
+- 🔒 **银行级安全**：实现严格的身份验证、授权和数据加密，保护用户信息安全
+- 📱 **全平台兼容**：响应式设计确保在桌面、平板和移动设备上都有出色表现
+- 🔄 **前后端分离**：后端基于Spring Boot提供RESTful API，前端采用HTML、CSS和JavaScript构建用户界面
+
+系统已完成前端性能优化工作，显著提升了加载速度和运行效率，为用户带来流畅的体验。
 
 ## 项目结构
 
@@ -92,69 +101,62 @@ graph TD
 ## 技术栈
 
 ### 后端
-- Java 17+
-- Spring Boot 3.2.5
-- Spring Security
-- Spring Data JPA
-- H2 数据库 (开发环境)
-- MySQL 数据库 (生产环境)
-- Maven 3.8+
+![Java](https://img.shields.io/badge/Java-17+-blue) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-green) ![Spring Security](https://img.shields.io/badge/Spring%20Security-red)
+![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-yellow) ![H2](https://img.shields.io/badge/H2-数据库-blue) ![MySQL](https://img.shields.io/badge/MySQL-数据库-orange)
+![Maven](https://img.shields.io/badge/Maven-3.8+-purple)
 
 ### 前端
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- 响应式设计
-- Font Awesome 图标
-- Chart.js (数据可视化)
-- 性能优化技术：
-  - 图片懒加载
-  - JavaScript延迟加载
-  - CSS预加载
-  - 请求缓存机制
-  - 指数退避重试机制
-  - DOM操作优化 (文档片段)
+![HTML5](https://img.shields.io/badge/HTML5-orange) ![CSS3](https://img.shields.io/badge/CSS3-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
+![响应式设计](https://img.shields.io/badge/响应式设计-green) ![Font Awesome](https://img.shields.io/badge/Font%20Awesome-purple) ![Chart.js](https://img.shields.io/badge/Chart.js-red)
+
+### 性能优化技术
+- 图片懒加载
+- JavaScript延迟加载
+- CSS预加载
+- 请求缓存机制
+- 指数退避重试机制
+- DOM操作优化 (文档片段)
 
 ## 功能特点
 
-GuardianBank金融服务系统提供以下核心功能：
+GuardianBank金融服务系统提供全方位的金融服务功能，满足用户多样化的需求：
 
-1. **账户管理**
-   - 用户注册、登录和身份验证
-   - 账户信息查询和管理
-   - 交易历史记录查询
+### 👤 账户管理
+- 用户注册、登录和身份验证
+- 账户信息查询和管理
+- 交易历史记录查询
 
-2. **支付与转账**
-   - 国内转账和国际汇款
-   - 支付账单和水电费
-   - 移动支付集成
+### 💸 支付与转账
+- 国内转账和国际汇款
+- 支付账单和水电费
+- 移动支付集成
 
-3. **投资理财**
-   - 定期存款和理财产品
-   - 股票和基金投资
-   - 投资组合管理
+### 📈 投资理财
+- 定期存款和理财产品
+- 股票和基金投资
+- 投资组合管理
 
-4. **贷款服务**
-   - 个人贷款和房屋抵押贷款
-   - 贷款申请和审批流程
-   - 利率计算和还款计划
+### 🏠 贷款服务
+- 个人贷款和房屋抵押贷款
+- 贷款申请和审批流程
+- 利率计算和还款计划
 
-5. **客户服务**
-   - 在线客服支持
-   - 常见问题解答
-   - 投诉和反馈处理
+### 📞 客户服务
+- 在线客服支持
+- 常见问题解答
+- 投诉和反馈处理
 
-6. **系统性能优化**
-   - 图片懒加载：减少初始加载时间
-   - JavaScript延迟加载：提高页面渲染速度
-   - CSS预加载：优化样式加载顺序
-   - 请求缓存机制：减少重复网络请求
-   - 指数退避重试：提高API调用稳定性
-   - DOM操作优化：使用文档片段减少重排重绘
+### ⚡ 系统性能优化
+- 图片懒加载：减少初始加载时间
+- JavaScript延迟加载：提高页面渲染速度
+- CSS预加载：优化样式加载顺序
+- 请求缓存机制：减少重复网络请求
+- 指数退避重试：提高API调用稳定性
+- DOM操作优化：使用文档片段减少重排重绘
 
 ## 项目启动指南
 
-### 自动启动方法
+### 🚀 快速启动
 
 #### 使用批处理文件
 ```
@@ -168,7 +170,7 @@ cd d:\GuardianBank Program\start-project
 powershell -File .\start-project.ps1
 ```
 
-### 手动启动步骤
+### 🔧 手动启动步骤
 
 #### 启动后端服务
 ```
@@ -185,9 +187,14 @@ npm install
 npm start
 ```
 
-### 服务访问地址
+### 🌐 服务访问地址
 - 前端: http://localhost:3000
 - 后端: http://localhost:8080
+
+### 🔍 验证方法
+1. 打开浏览器访问前端地址
+2. 使用默认账户登录: `user` / `password`
+3. 验证各项功能是否正常工作
 
 ### 注意事项
 1. 第一次运行时，安装前端依赖可能需要一些时间
@@ -356,10 +363,12 @@ const config = {
 
 感谢所有为项目做出贡献的团队成员和开源社区！
 
-## 部署到GitHub
+## 🚀 部署与贡献
 
-### 手动部署步骤
-1. **在GitHub上创建新仓库**：登录GitHub，创建一个新的空仓库，获取仓库URL（https://github.com/CelestialVisionary/GuardianBank-Program.git）
+### 🔄 部署到GitHub
+
+#### 手动部署步骤
+1. **在GitHub上创建新仓库**：登录GitHub，创建一个新的空仓库，获取仓库URL
 2. **初始化本地Git仓库**（如项目未初始化）：
    ```bash
    git init
@@ -381,7 +390,7 @@ const config = {
    git push -u origin main
    ```
 
-### 日常开发与推送流程
+#### 日常开发与推送流程
 1. **更新本地代码**（从远程拉取最新更改）：
    ```bash
    git pull origin main
@@ -401,35 +410,55 @@ const config = {
    git push origin main
    ```
 
+### 🤝 贡献指南
+
+1. **Fork 项目仓库**：点击GitHub页面上的"Fork"按钮
+2. **创建功能分支**：
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. **提交更改**：
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+4. **推送到分支**：
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. **提交 Pull Request**：在GitHub页面上创建新的Pull Request
+
 ### 注意事项
-- 确保您已安装Git并配置了GitHub凭证（可使用`git config --global user.name`和`git config --global user.email`配置）
-- 仓库URL格式应为：https://github.com/CelestialVisionary/GuardianBank-Program.git
+- 确保您已安装Git并配置了GitHub凭证
+- 仓库URL：https://github.com/CelestialVisionary/GuardianBank-Program.git
 - 推送前建议先拉取远程最新代码，避免冲突
-- 如果遇到权限问题，请检查您对目标仓库是否有写入权限
+- 遵循代码规范，确保代码质量
+- 提交信息应清晰描述更改内容
 
-## 项目开发思路与仓库管理理解
+## 💡 项目开发思路与仓库管理
 
-### 开发思路
+### 🚀 开发思路
 1. **前后端分离架构**：后端提供RESTful API，前端负责用户界面和交互，实现关注点分离
 2. **迭代开发**：采用敏捷开发模式，分阶段实现功能，持续集成和测试
 3. **模块化设计**：将系统拆分为多个功能模块（用户管理、账户服务等），提高代码可维护性
 4. **安全性优先**：实现严格的身份验证、授权和数据加密，保护用户信息安全
+5. **用户体验至上**：注重界面设计和交互体验，确保系统易于使用
 
-### 仓库管理理解
-1. **版本控制的重要性**：
-   - 追踪代码变更历史，便于回滚和问题定位
-   - 多人协作开发的基础，避免代码冲突
-   - 代码的备份和安全保障
+### 🔄 仓库管理
 
-2. **分支策略**：
-   - `main`分支：稳定版本分支，仅包含经过测试的可发布代码
-   - 功能分支：为每个新功能创建独立分支（如`feature/user-management`），开发完成后合并到main
-   - 修复分支：为紧急bug修复创建分支（如`hotfix/login-issue`），修复后合并到main
+#### 版本控制的重要性
+- 📜 追踪代码变更历史，便于回滚和问题定位
+- 👥 多人协作开发的基础，避免代码冲突
+- 💾 代码的备份和安全保障
 
-3. **提交规范**：
-   - 提交信息应清晰描述更改内容（如`功能：添加用户注册接口`或`修复：登录页面表单验证问题`）
-   - 保持提交粒度适中，每个提交对应一个完整的功能或修复
+#### 分支策略
+- `main`分支：稳定版本分支，仅包含经过测试的可发布代码
+- 功能分支：为每个新功能创建独立分支（如`feature/user-management`），开发完成后合并到main
+- 修复分支：为紧急bug修复创建分支（如`hotfix/login-issue`），修复后合并到main
 
-4. **代码审查**：
-   - 推行Pull Request流程，鼓励团队成员互相审查代码
-   - 通过代码审查提高代码质量，发现潜在问题和改进点
+#### 提交规范
+- ✅ 提交信息应清晰描述更改内容（如`功能：添加用户注册接口`或`修复：登录页面表单验证问题`）
+- 📝 保持提交粒度适中，每个提交对应一个完整的功能或修复
+
+#### 代码审查
+- 🔍 推行Pull Request流程，鼓励团队成员互相审查代码
+- 🚀 通过代码审查提高代码质量，发现潜在问题和改进点
