@@ -1,29 +1,28 @@
 package com.guardianbank.config;
 
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableCaching
 public class CacheConfig {
-    
+
     @Bean
     public CacheManager cacheManager() {
-        // 创建EhCache缓存管理器
-        return new EhCacheCacheManager(ehCacheManagerFactoryBean().getObject());
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
+        cacheManager.setCaffeine(caffeineCacheBuilder());
+        return cacheManager;
     }
-    
-    @Bean
-    public EhCacheManagerFactoryBean ehCacheManagerFactoryBean() {
-        // 配置EhCache管理器工厂
-        EhCacheManagerFactoryBean factoryBean = new EhCacheManagerFactoryBean();
-        factoryBean.setConfigLocation(new ClassPathResource("ehcache.xml"));
-        factoryBean.setShared(true);
-        return factoryBean;
+
+    Caffeine<Object, Object> caffeineCacheBuilder() {
+        return Caffeine.newBuilder()
+                .expireAfterWrite(60, TimeUnit.MINUTES)
+                .maximumSize(1000);
     }
 }

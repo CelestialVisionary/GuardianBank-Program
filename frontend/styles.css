@@ -61,6 +61,10 @@ nav ul li a:hover {
     background-color: #3182ce;
 }
 
+.menu-btn {
+    display: none;
+}
+
 /* 英雄区域样式 */
 .hero {
     background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
@@ -250,31 +254,56 @@ footer {
     padding: 2rem 5%;
 }
 
-/* 响应式设计 */
+/* 响应式设计 - 移动设备优化 */
 @media (max-width: 768px) {
+    /* 头部导航调整 */
     header {
-        flex-direction: column;
-        padding: 1rem;
+        padding: 1rem 3%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
-
+    .logo {
+        font-size: 1.5rem;
+    }
     nav ul {
-        margin: 1rem 0;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: #1a365d;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
+    nav ul.expanded {
+        display: flex;
+    }
     nav ul li {
-        margin: 0 1rem;
+        margin: 0.5rem 0;
+    }
+    .menu-btn {
+        display: block;
     }
 
+    /* 英雄区域调整 */
     .hero-content h1 {
         font-size: 2rem;
     }
+    .hero-content p {
+        font-size: 1rem;
+    }
 
+    /* 服务卡片调整 */
     .service-cards {
         flex-direction: column;
     }
-}
+    .card {
+        max-width: 100%;
+    }
 
-@media (max-width: 768px) {
+    /* 联系表单调整 */
     .contact-container {
         flex-direction: column;
     }

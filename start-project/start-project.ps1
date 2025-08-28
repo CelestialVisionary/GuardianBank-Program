@@ -1,4 +1,4 @@
-# GuardianBank项目启动脚本（PowerShell版）
+﻿# GuardianBank项目启动脚本（PowerShell版）
 
 # 设置项目根目录
 $PROJECT_ROOT = Split-Path -Parent $MyInvocation.MyCommand.Path

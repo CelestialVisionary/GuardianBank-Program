@@ -1,5 +1,12 @@
 // 等待DOM加载完成
 document.addEventListener('DOMContentLoaded', function() {
+    // 移动端菜单切换
+    const menuBtn = document.querySelector('.menu-btn');
+    const navUl = document.querySelector('nav ul');
+    
+    menuBtn.addEventListener('click', function() {
+        navUl.classList.toggle('expanded');
+    });
     // 初始化图片懒加载
     lazyLoadImages();
     // 添加滚动事件监听器以继续懒加载
@@ -109,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         console.log('开始从后端获取服务数据...');
-        console.log('请求URL:', 'http://localhost:8080/api/services');
+        console.log('请求URL:', 'http://backend:8080/api/services');
         fetch('http://localhost:8080/api/services')
             .then(response => {
                 if (!response.ok) {
@@ -253,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const data = Object.fromEntries(formData.entries());
                 
                 // 发送数据到服务器
-                fetch('http://localhost:8080/api/contact', {
+                fetch('http://backend:8080/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

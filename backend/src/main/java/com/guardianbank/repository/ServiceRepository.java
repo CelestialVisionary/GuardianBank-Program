@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ServiceRepository extends JpaRepository<Service, Long> {
@@ -17,7 +18,7 @@ public interface ServiceRepository extends JpaRepository<Service, Long> {
     // 缓存单个服务数据
     @Override
     @Cacheable(value = "serviceCache")
-    Service findById(Long id);
+    Optional<Service> findById(Long id);
     // 根据服务类型查询服务
     @Cacheable(value = "serviceByTypeCache")
     List<Service> findByType(String type);
