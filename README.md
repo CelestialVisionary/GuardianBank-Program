@@ -259,7 +259,7 @@ npm start
    ```bash
    npm start
    ```
-4. 前端页面将在 http://localhost:8000 访问
+4. 前端页面将在 http://localhost:3000 访问
 
 ### 性能优化验证
 启动服务后，您可以通过以下方式验证前端性能优化效果：

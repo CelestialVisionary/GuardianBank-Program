@@ -130,6 +130,62 @@ nav ul li a:hover {
     min-width: 250px;
     max-width: 350px;
     margin: 0 auto 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.card-header img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-header img {
+    transform: scale(1.05);
+}
+
+.service-type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-detail-btn {
+    background-color: #1a365d;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+.service-detail-btn:hover {
+    background-color: #2c5282;
+    transform: translateY(-1px);
+}
+
+.service-detail-btn:active {
+    transform: translateY(0);
 }
 
 .card h3 {
@@ -150,6 +206,119 @@ nav ul li a:hover {
     border-radius: 8px;
     text-align: center;
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.error-details {
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem;
+    opacity: 0.8;
+}
+
+.retry-button {
+    background-color: #c53030;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: #9b2c2c;
+}
+
+/* 加载状态样式 */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #4299e1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loading-spinner-small {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 重试倒计时样式 */
+.retry-countdown {
+    text-align: center;
+    padding: 3rem;
+    color: #4a5568;
+}
+
+.retry-countdown p {
+    margin-bottom: 0.5rem;
+}
+
+/* 默认数据通知 */
+.default-data-notification {
+    background-color: #e6fffa;
+    color: #0d9488;
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+}
+
+/* 通知系统样式 */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 300px;
+}
+
+.notification-success {
+    background-color: #48bb78;
+}
+
+.notification-error {
+    background-color: #f56565;
+}
+
+.notification-info {
+    background-color: #4299e1;
 }
 
 .error-message button {
@@ -165,6 +334,79 @@ nav ul li a:hover {
 
 .error-message button:hover {
     background-color: #9b2c2c;
+}
+
+/* 关于我们样式 */
+.about {
+    padding: 5rem 5%;
+    background-color: #f5f7fa;
+}
+
+.about-container {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1a365d;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+}
+
+.about-values {
+    margin-top: 2rem;
+}
+
+.about-values h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.about-values ul {
+    list-style: none;
+}
+
+.about-values li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #4a5568;
+}
+
+.about-values li::before {
+    content: "•";
+    color: #4299e1;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -0.3rem;
 }
 
 /* 联系我们样式 */
@@ -262,6 +504,60 @@ footer {
     }
 }
 
+/* 添加全局过渡效果 */
+a, button, .card, .form-group input, .form-group textarea {
+    transition: all 0.3s ease;
+}
+
+/* 添加卡片悬停动画 */
+.card {
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 添加按钮悬停效果 */
+.cta-btn, .login-btn a {
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.cta-btn:hover, .login-btn a:hover {
+    transform: translateY(-1px);
+}
+
+.cta-btn:active, .login-btn a:active {
+    transform: translateY(0);
+}
+
+/* 导航链接悬停效果 */
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #4299e1;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
 @media (max-width: 768px) {
     /* 头部导航调整 */
     header {
@@ -308,6 +604,16 @@ footer {
     }
     .card {
         max-width: 100%;
+    }
+
+    /* 关于我们调整 */
+    .about-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-image,
+    .about-content {
+        flex: 1;
     }
 
     /* 联系表单调整 */
