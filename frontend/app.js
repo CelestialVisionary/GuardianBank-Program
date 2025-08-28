@@ -73,37 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 监听窗口大小变化
     window.addEventListener('resize', handleResize);
 
-    // 添加导航菜单切换按钮
-    const menuBtn = document.createElement('button');
-    menuBtn.classList.add('menu-btn');
-    menuBtn.textContent = '菜单';
-    menuBtn.style.display = 'none';
 
-    // 添加到header
-    const header = document.querySelector('header');
-    header.insertBefore(menuBtn, header.firstChild);
-
-    // 菜单按钮点击事件
-    menuBtn.addEventListener('click', function() {
-        header.classList.toggle('expanded');
-        handleResize();
-    });
-
-    // 根据屏幕宽度显示/隐藏菜单按钮
-    function toggleMenuBtn() {
-        if (window.innerWidth <= 768) {
-            menuBtn.style.display = 'block';
-        } else {
-            menuBtn.style.display = 'none';
-            header.classList.remove('expanded');
-        }
-    }
-
-    // 初始切换
-    toggleMenuBtn();
-
-    // 监听窗口大小变化
-    window.addEventListener('resize', toggleMenuBtn);
 
     // 从后端API获取服务数据 - 优化版
     function fetchServices(retryCount = 0) {

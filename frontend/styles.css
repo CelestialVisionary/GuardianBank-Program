@@ -74,7 +74,7 @@ nav ul li a:hover {
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
@@ -123,13 +123,13 @@ nav ul li a:hover {
 
 .card {
     background-color: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     flex: 1;
     min-width: 250px;
     max-width: 350px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 }
 
 .card h3 {
@@ -183,7 +183,7 @@ nav ul li a:hover {
 .contact-container {
     display: flex;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
@@ -223,7 +223,7 @@ nav ul li a:hover {
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group label {
@@ -255,6 +255,13 @@ footer {
 }
 
 /* 响应式设计 - 移动设备优化 */
+/* 添加更多断点以支持各种设备尺寸 */
+@media (max-width: 1024px) {
+    .service-cards {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     /* 头部导航调整 */
     header {
