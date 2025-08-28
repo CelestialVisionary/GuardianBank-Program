@@ -19,9 +19,33 @@
                 <li><a href="#services">服务</a></li>
                 <li><a href="#about">关于我们</a></li>
                 <li><a href="#contact">联系我们</a></li>
+            <li><a href="#account" class="account-link">我的账户</a></li>
             </ul>
         </nav>
         <div class="login-btn"><a href="#login">登录</a></div>
+    </header>
+
+    <!-- 账户余额模态框 -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>我的账户</h2>
+            <div class="account-section">
+                <h3>账户余额</h3>
+                <div id="balanceDisplay" class="balance-display">
+                    <div class="loading-state"><div class="loading-spinner"></div></div>
+                </div>
+                <button id="refreshBalance" class="refresh-btn">刷新余额</button>
+            </div>
+            <div class="account-section">
+                <h3>最近交易</h3>
+                <div id="transactionsList" class="transactions-list">
+                    <div class="loading-state"><div class="loading-spinner"></div></div>
+                </div>
+                <button id="viewAllTransactions" class="view-all-btn">查看全部交易</button>
+            </div>
+        </div>
+    </div>
     </header>
 
     <section id="home" class="hero">

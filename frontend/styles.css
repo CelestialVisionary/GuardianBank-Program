@@ -422,6 +422,113 @@ nav ul li a:hover {
     text-align: center;
 }
 
+/* 账户模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.account-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.balance-display {
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.balance-amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0.5rem 0;
+}
+
+.balance-update {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.transactions-list {
+    margin: 1rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+.transaction-item.expense .transaction-amount {
+    color: #e74c3c;
+}
+
+.transaction-item.income .transaction-amount {
+    color: #2ecc71;
+}
+
+.transaction-date {
+    color: #7f8c8d;
+    min-width: 100px;
+}
+
+.refresh-btn, .view-all-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.refresh-btn:hover, .view-all-btn:hover {
+    background-color: #2980b9;
+}
+
+.no-transactions {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+}
+
+/* 联系表单样式 */
 .contact-container {
     display: flex;
     justify-content: space-between;

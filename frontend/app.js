@@ -330,6 +330,129 @@ document.addEventListener('DOMContentLoaded', function() {
         alert(`您正在查看 ${service.name} 的详细信息\n\n${service.description || '暂无详细描述'}`);
     }
 
+    // 账户余额和交易历史功能
+    function initAccountFeatures() {
+        const accountModal = document.getElementById('accountModal');
+        const accountLink = document.querySelector('.account-link');
+        const closeBtn = document.querySelector('.close-btn');
+        const refreshBalanceBtn = document.getElementById('refreshBalance');
+
+        // 打开账户模态框
+        accountLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            accountModal.style.display = 'block';
+            fetchAccountBalance();
+            fetchRecentTransactions();
+        });
+
+        // 关闭账户模态框
+        closeBtn.addEventListener('click', function() {
+            accountModal.style.display = 'none';
+        });
+
+        // 点击模态框外部关闭
+        window.addEventListener('click', function(e) {
+            if (e.target === accountModal) {
+                accountModal.style.display = 'none';
+            }
+        });
+
+        // 刷新余额按钮
+        refreshBalanceBtn.addEventListener('click', fetchAccountBalance);
+    }
+
+    // 获取账户余额
+    function fetchAccountBalance(retryCount = 0) {
+        const balanceDisplay = document.getElementById('balanceDisplay');
+        balanceDisplay.innerHTML = '<div class="loading-state"><div class="loading-spinner"></div></div>';
+
+        const backendUrls = ['http://localhost:8080/api/account/balance', 'http://backend:8080/api/account/balance'];
+
+        Promise.race(backendUrls.map(url => {
+            return fetch(url, { timeout: 5000 })
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP错误: ${response.status}`);
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error(`从${url}获取余额失败:`, error);
+                    throw error;
+                });
+        }))
+        .then(data => {
+            balanceDisplay.innerHTML = `
+                <div class="balance-amount">¥${data.balance.toFixed(2)}</div>
+                <div class="balance-update">最后更新: ${new Date(data.updateTime).toLocaleString()}</div>
+            `;
+        })
+        .catch(error => {
+            if (retryCount < 2) {
+                setTimeout(() => fetchAccountBalance(retryCount + 1), Math.pow(2, retryCount) * 1000);
+            } else {
+                balanceDisplay.innerHTML = `
+                    <div class="error-message">
+                        <p>无法获取余额数据</p>
+                        <button onclick="fetchAccountBalance()">重试</button>
+                    </div>
+                `;
+            }
+        });
+    }
+
+    // 获取最近交易记录
+    function fetchRecentTransactions(retryCount = 0) {
+        const transactionsList = document.getElementById('transactionsList');
+        transactionsList.innerHTML = '<div class="loading-state"><div class="loading-spinner"></div></div>';
+
+        const backendUrls = ['http://localhost:8080/api/account/transactions', 'http://backend:8080/api/account/transactions'];
+
+        Promise.race(backendUrls.map(url => {
+            return fetch(url, { timeout: 5000 })
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP错误: ${response.status}`);
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error(`从${url}获取交易记录失败:`, error);
+                    throw error;
+                });
+        }))
+        .then(transactions => {
+            if (transactions.length === 0) {
+                transactionsList.innerHTML = '<p class="no-transactions">暂无交易记录</p>';
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+            transactions.slice(0, 5).forEach(transaction => {
+                const item = document.createElement('div');
+                item.className = `transaction-item ${transaction.type === '支出' ? 'expense' : 'income'}`;
+                item.innerHTML = `
+                    <div class="transaction-date">${new Date(transaction.date).toLocaleDateString()}</div>
+                    <div class="transaction-desc">${transaction.description}</div>
+                    <div class="transaction-amount">${transaction.amount > 0 ? '+' : ''}¥${transaction.amount.toFixed(2)}</div>
+                `;
+                fragment.appendChild(item);
+            });
+            transactionsList.appendChild(fragment);
+        })
+        .catch(error => {
+            if (retryCount < 2) {
+                setTimeout(() => fetchRecentTransactions(retryCount + 1), Math.pow(2, retryCount) * 1000);
+            } else {
+                transactionsList.innerHTML = `
+                    <div class="error-message">
+                        <p>无法获取交易记录</p>
+                        <button onclick="fetchRecentTransactions()">重试</button>
+                    </div>
+                `;
+            }
+        });
+    }
+
+    // 初始化账户功能
+    window.requestAnimationFrame(initAccountFeatures);
+
     // 调用函数获取服务数据
     console.log('页面加载完成，准备调用fetchServices函数');
     // 使用requestAnimationFrame优化性能
